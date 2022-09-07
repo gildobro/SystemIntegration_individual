@@ -270,3 +270,7 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+package.json
+package-lock.json
+poetry.lock
+pyproject.toml
