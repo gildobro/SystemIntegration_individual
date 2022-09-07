@@ -9,6 +9,12 @@ app.get("/", (req, res) =>{
     res.send({message: "OK OK OK"});
 });
 
+app.get("/timestamp", (req, res) =>{
+    var date = new Date();
+    console.log(date.toISOString())
+    res.send({Date: date})
+});
+
 app.get("/datetime", async (req,res) =>{
     const pythonResponse = await fetch("http://127.0.0.1:8000/getdate");
     const pythonmessage = await pythonResponse.json();

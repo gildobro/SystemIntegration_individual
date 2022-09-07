@@ -18,3 +18,9 @@ def _():
     print('Today Datetime:', today)
     print('Today Datetime:', iso_date)
     return iso_date
+
+@app.get("/nodedate")
+def _():
+    response = requests.get("http://127.0.0.1:3000/timestamp")
+    print(response.content)
+    return "This is the Node Server's Date", response.content
