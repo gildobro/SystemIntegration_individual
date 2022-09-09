@@ -1,5 +1,4 @@
-from urllib import response
-from fastapi import FastAPI  
+from fastapi import FastAPI, Query
 from datetime import datetime
 import requests
 import random
@@ -11,6 +10,15 @@ app = FastAPI()
 @app.get("/")
 def _():
     return {"Hello: World"}
+
+
+@app.get("/items")
+def _(page: int = Query(default=1, gt=0)):
+    return {"page": page}
+
+@app.get("/items/{item_id}")
+def _(item_id: int):
+    return {"item_id": item_id}
 
 
 @app.get("/getdate")

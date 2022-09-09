@@ -3,6 +3,29 @@ import fetch from 'node-fetch';
 
 const app = express();
 
+import swaggerJSDoc from "swagger-jsdoc";
+
+
+const options = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'Dates API',
+            version: '0.0.1',
+        },
+    },
+    apis: ['./routers/*.js'],
+};
+
+const openapiSpecification = swaggerJSDoc(options);
+
+import swaggerUI from "swagger-ui-express";
+
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(openapiSpecification));
+
+import userRouter from "./routers/docs.js"
+app.use(userRouter);
+
 
 app.get("/", (req, res) =>{
     console.log("This works!");
