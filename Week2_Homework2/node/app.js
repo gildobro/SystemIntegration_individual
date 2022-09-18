@@ -59,7 +59,6 @@ app.get("/getlength", (req, res) =>{
     res.send({"The length of the string is: ": randomString.length})
 })
 
-
-app.listen(3000, ()=>{
-    console.log("Server is running on ", 3000);
+app.listen(8080, ()=>{
+    console.log("Server is running on ", 8080);
 });
